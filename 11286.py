@@ -9,7 +9,7 @@ for _ in range(n):
     if x != 0:
         heapq.heappush(heap, (abs(x), x))
     else:
-        if not heap:
+        try:
+            print(heapq.heappop(heap)[1])
+        except:
             print(0)
-        else:
-            print(heapq.heappop(q)[1])
