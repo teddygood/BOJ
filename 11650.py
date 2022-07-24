@@ -1,8 +1,12 @@
 import sys
+
 n = int(sys.stdin.readline())
-so = []
+location = []
+
 for i in range(n):
-    so.append(list(map(int, sys.stdin.readline().split())))
-so.sort(key=lambda x: (x[0], x[1]))
-for i in so:
+    location.append(list(map(int, sys.stdin.readline().split())))
+
+location.sort(key=lambda x: (x[0], x[1]))
+
+for i in location:
     print(i[0], i[1])
