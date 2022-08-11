@@ -1,15 +1,24 @@
 import sys
-input = sys.stdin.readline
-n = int(input())
-s = list(map(int, input().split()))
-m = int(input())
-low, high = 0, max(s)
-while low <= high:
-    mid = (low + high) // 2
+
+n = int(sys.stdin.readline())
+array = list(map(int, sys.stdin.readline().split()))
+m = int(sys.stdin.readline())
+
+start = 0
+end = max(array)
+
+while start <= end:
+    mid = (start + end) // 2
     num = 0
-    for i in s:
-        if i >= mid: num += mid
-        else: num += i
-    if num <= m: low = mid + 1
-    else: high = mid - 1
-print(high)
+
+    for value in array:
+        if value >= mid:
+            num += mid
+        else:
+            num += value
+    if num > m:
+        end = mid - 1
+    else:
+        start = mid + 1
+
+print(end)

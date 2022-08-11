@@ -1,21 +1,14 @@
-from sys import stdin
+n = int(input())
+x = map(int, input().split())
+m = int(input())
+array = map(int, input().split())
 
-# _ = stdin.readline()
-n = sorted(map(int,stdin.readline().split()))
-# _ = stdin.readline()
-m = map(int,stdin.readline().split())
+hashmap = {}
 
-def binary(array, target, start, end):
-    while(start <= end):
-        mid = (start + end) // 2
-        if array[mid] == target:
-            return mid
+for i in x:
+    if i in hashmap:
+        hashmap[i] += 1
+    else:
+        hashmap[i] = 1
 
-n_dic = {}
-for n in n:
-    start = 0
-    end = len(n) - 1
-    if n not in n_dic:
-        n_dic[n] = binary(n, n, start, end)
-
-print(' '.join(str(n_dic[x]) if x in n_dic else '0' for x in m))
+print(' '.join(str(hashmap[i]) if i in hashmap else '0' for i in array))
