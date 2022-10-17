@@ -1,17 +1,12 @@
-n = int(input())
-s = []
+import sys
+
+n = int(sys.stdin.readline())
+location = []
 
 for i in range(n):
-    start, end = map(int, input().split())
-    s.append([start, end])
+    location.append(list(map(int, sys.stdin.readline().split())))
 
-s = sorted(s, key=lambda a: a[0])
-s = sorted(s, key=lambda a: a[1])
+location.sort(key=lambda x: (x[0], x[1]))
 
-last = 0
-count = 0
-for i, j in s:
-    if i >= last:
-        count += 1
-        last = j
-print(count)
+for i in location:
+    print(i[0], i[1])
