@@ -7,4 +7,6 @@ for _ in range(n):
 rope.sort(reverse=True)
 
 for i in range(n):
-    rope.append(rope[n]*(n+1))
+    rope[i] = rope[i] * (i + 1)
+
+print(max(rope))
